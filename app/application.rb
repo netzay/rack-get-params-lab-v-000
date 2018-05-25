@@ -12,10 +12,10 @@ class Application
         resp.write "#{item}\n"
       end
     elsif req.path.match(/cart/)
-      cart = req.params["q"]
+      item = req.params["q"]
 
-    if @@cart.include?(/items/)
-      resp.write "#{items} is in your cart."
+    if @@cart.include?(item)
+      resp.write "#{item} is in your cart."
     else
       resp.write "Your cart is empty"
     end
