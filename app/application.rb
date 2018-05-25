@@ -11,9 +11,7 @@ class Application
         @@cart << item
         resp.write "#{item}\n"
       end
-    elsif req.path.match(/cart/)
-      cart = req.params["q"]
-
+  
     if @@cart.include?(/items/)
       resp.write "#{items}"
     else
