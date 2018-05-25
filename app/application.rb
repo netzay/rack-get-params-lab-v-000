@@ -15,7 +15,7 @@ class Application
       cart = req.params["q"]
 
     if @@cart.include?(/items/)
-      resp.write "#{items}"
+      resp.write "#{items} is in your cart."
     else
       resp.write "Your cart is empty"
     end
