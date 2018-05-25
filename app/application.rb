@@ -8,9 +8,16 @@ class Application
 
     if req.path.match(/items/)
       @@items.each do |item|
-        @@cart << item
         resp.write "#{item}\n"
       end
+    elsif req.path.match(/cart/)
+      cart = req.params["q"]
+
+    if @@cart.include?(cart)
+      resp.write "#{cart}"
+    else
+      resp.write "The cart is empty"
+    end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
