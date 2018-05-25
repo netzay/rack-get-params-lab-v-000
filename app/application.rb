@@ -17,8 +17,18 @@ class Application
       else
         @@cart.each do |item|
         resp.write "#{item} is in your cart."
+        end
       end
-    end
+
+    elsif req.path.match(/add/)
+      item = req.params["item"]
+
+      if @@items.include?(item)
+        @@cart << item
+      else
+        resp.write "We don't have that item"
+        end
+      end
 
 
     elsif req.path.match(/search/)
